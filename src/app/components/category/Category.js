@@ -1,16 +1,24 @@
-"use client"
-
-import getCategory from "@/lib/getCategory";
-import Image from "next/image";
-import React from "react";
+"use client";
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import Slider from "react-slick";
 
-export default async function Category() {
-  // Fetch categories
-  //https://demo.webcodecare.com/api/categoriesApi
-  // Log the categories in the server console
+export default function Category() {
+  const [data, setData] = useState([]);
 
-  // Slider settings
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`https://demo.webcodecare.com/api/categoriesApi`);
+        const result = await res.json();
+        setData(result);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   var settings = {
     dots: true,
@@ -46,31 +54,17 @@ export default async function Category() {
       },
     ],
   };
+console.log(data?.data)
   return (
     <div className="mt-10 container mx-auto">
-      <Slider {...settings}>
-        <div>
-          <h3>1</h3>
-        </div>
-        <div>
-          <h3>2</h3>
-        </div>
-        <div>
-          <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
-        </div>
-      </Slider>
+        <Slider {...settings}>
+          {data?.data?.map((item) => (
+            <div key={item?.id}>
+              <h3 className="text-2xl">{item?.name}</h3>
+              <Image width={70} height={70} src={item?.image} />
+            </div>
+          ))}
+        </Slider>
     </div>
   );
 }
-
-
-
