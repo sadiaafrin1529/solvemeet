@@ -14,11 +14,11 @@ export default function Hero() {
       <div className="container mx-auto lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
         {/* rightside */}
         <div className="relative z-10 mx-auto max-w-xl sm:max-w-md lg:max-w-2xl lg:col-span-7  lg:pt-6 xl:col-span-6 px-4 sm:px-6 lg:px-0">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl lg:w-[400px] text-center sm:text-left">
-            Consult <span className="text-blue-800">Best Adviser</span> Your
+          <h1 className="text-2xl font-bold sm:text-3xl lg:text-4xl lg:w-[400px] text-center sm:text-left">
+            Consult <span className="text-blue-500">Best Adviser</span> Your
             Nearby Location.
           </h1>
-          <p className="mt-4 sm:mt-5 text-base sm:text-lg text-gray-600 text-center sm:text-left">
+          <p className="mt-4  sm:mt-5  sm:text-2xl text-gray-600 text-center sm:text-left">
             Solve Meet is an online Universal Support platform that provides
             comprehensive guidance for every aspect of life. No matter where you
             are, you can get our help from anywhere in the world.
@@ -30,7 +30,10 @@ export default function Hero() {
               className="w-24 h-auto sm:w-32"
             />
             <div>
-              <Button icon={<MdOutlineRestartAlt />} title="Start a Consult" />
+              <Button
+                icon={<MdOutlineRestartAlt size={24} />}
+                title="Start a Consult"
+              />
             </div>
           </div>
         </div>

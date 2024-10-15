@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Slider from "react-slick";
+import Title from '../title/Title';
 
 export default function Category() {
   const [data, setData] = useState([]);
@@ -56,15 +57,29 @@ export default function Category() {
   };
 console.log(data?.data)
   return (
-    <div className="mt-10 container mx-auto">
-        <Slider {...settings}>
-          {data?.data?.map((item) => (
-            <div key={item?.id}>
-              <h3 className="text-2xl">{item?.name}</h3>
-              <Image width={70} height={70} src={item?.image} />
+    <div className=" container mx-auto ">
+      <Title  title={"Category"} />
+      <Slider {...settings}>
+        {data?.data?.map((item) => (
+          <div className="m-5 p-5 ">
+            <div
+              key={item?.id}
+              className="border  border-blue-500 rounded-xl py-7"
+            >
+              <div className="border-double border-4 border-blue-500 mx-auto p-3 rounded-[50%] w-20 h-20">
+                <Image
+                  className="text-center border-solid border-2 rounded-[50%] border-blue-500   object-cover"
+                  width={80}
+                  height={80}
+                  src={item?.image}
+                  alt={item?.name}
+                />
+              </div>
+              <h3 className="text-2xl text-center">{item?.name}</h3>
             </div>
-          ))}
-        </Slider>
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 }
