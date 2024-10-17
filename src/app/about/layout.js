@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import Footer from "../components/footer/Footer";
 
 //static metadata
 export const metadata = {
@@ -10,11 +11,9 @@ export const metadata = {
 export default function aboutlayout({ children }) {
   return (
     <div>
-      <nav className="mt-6 mb-6">
-        <ul className="flex gap-6">
-          </ul>
-      </nav>
+     
       {children}
+      <Footer/>
     </div>
   );
 }

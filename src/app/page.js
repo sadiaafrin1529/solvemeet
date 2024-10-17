@@ -12,6 +12,7 @@ import Footer from "./components/footer/Footer";
 
 
 
+
 export default async function Home() {
  
   return (
@@ -25,7 +26,7 @@ export default async function Home() {
         <BestAdviser />
         <ClientSays/>
         <BlogsAndNews />
-        <Footer/>
+    <Footer/>
         </div>
     </main>
   );

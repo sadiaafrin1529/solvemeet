@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Footer from "./components/footer/Footer";
 
 
 const geistSans = localFont({
@@ -25,10 +26,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
-        <Navbar/>
-        {children}
+        <Navbar />
+        <main className="flex-grow">{children}</main>{" "}
+        {/* This will grow and push the footer down */}
+        {/* <Footer /> */}
       </body>
     </html>
   );

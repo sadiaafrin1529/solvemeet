@@ -6,3 +6,13 @@
 body {
     background-color: background; /* example using a custom color variable */
 }
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* Full space fill korbe footer er uparer part ta */
+}
